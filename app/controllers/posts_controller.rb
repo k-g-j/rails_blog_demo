@@ -71,4 +71,11 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :body)
   end
+
+  def mark_notifications_as_read
+    if current_user
+      notifications_to_mark_as_read = @post.notifications_as_post.where(recipient: current_user)
+      notifications_to_mark_as_read.update_all(read_at: Time.zone.now)
+    end
+  end
 end
