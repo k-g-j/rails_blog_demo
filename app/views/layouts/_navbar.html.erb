@@ -1,24 +1,26 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <%= link_to "Rails Blog", root_path, class:'navbar-brand' %>
+    <%= link_to "Rails Blog", root_path, class:'navbar-brand'%>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <%= link_to "Home", root_path, class:'nav-link' %>
+          <%= link_to "Home", root_path, class:'nav-link'%>
         </li>
         <li class="nav-item">
-          <%= link_to "Blog", posts_path, class:'nav-link' %>
+          <%= link_to "Blog", posts_path, class:"nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "About", about_path, class:'nav-link' %>
+          <%= link_to "About", about_path, class:'nav-link'%>
         </li>
       </ul>
-      <ul class ="navbar-nav">
-        <%= render 'layouts/notifications' %> 
-        <%= render 'user/session_manager' %> 
+      <ul class="navbar-nav">
+        <%= render 'search/form' %>
+        <%= render 'layouts/notifications' %>
+        <%= render 'user/session_manager' %>
+      </ul>
     </div>
   </div>
 </nav>
