@@ -7,11 +7,9 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      flash[:notice] = 'Comment has been created'
-      redirect_to post_path(@post)
+      redirect_to post_path(@post), notice: 'Comment has been created'
     else
-      flash[:alert] = 'Comment has not been created'
-      redirect_to post_post(@post)
+      redirect_to post_path(@post), alert: 'Comment has not been created'
     end
   end
 
@@ -23,6 +21,7 @@ class CommentsController < ApplicationController
 
   def update
     @comment = @post.comments.find(params[:id])
+
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to post_url(@post), notice: 'Comment has been updated' }
